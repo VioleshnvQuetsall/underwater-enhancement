@@ -130,11 +130,11 @@ A pair of inputs is introduced to respectively enhance the **color contrast** an
 
   correct the global contrast since underwater image tend to be bright
   
-  $$
-  \begin{align}
-  \Gamma=I^{\gamma}
-  \end{align}
-  $$
+$$
+\begin{align}
+\Gamma=I^{\gamma}
+\end{align}
+$$
   
   at the cost of a loss of details in the under-or-over-exposed regions
   
@@ -142,19 +142,19 @@ A pair of inputs is introduced to respectively enhance the **color contrast** an
 
   blend a blurred or not sharp version of the image with the image to sharpen
   
-  $$
-  \begin{align}
-  S=I+\beta(I-G*I)
-  \end{align}
-  $$
+$$
+\begin{align}
+S=I+\beta(I-G*I)
+\end{align}
+$$
   
   the selection of $\beta$ is not trivial, thus switch to a different approach
   
-  $$
-  \begin{align}
-  S=(I+\mathcal N\{I-G*I\})/2
-  \end{align}
-  $$
+$$
+\begin{align}
+S=(I+\mathcal N\{I-G*I\})/2
+\end{align}
+$$
   
   where $\mathcal N$ denotes the histogram stretching operator, which shifts and scales all the color pixel intensities of an image so that the set of transformed pixel values cover the entire available dynamic range.
 
@@ -173,12 +173,12 @@ The weight maps are used during blending in such a way that pixels with a high w
   favor highlighted areas
 
 - Saturation weight
- 
-  $$
-  \begin{align}
-  W_{\rm sat}=\left(\frac13\left[(R_k-L_k)^2+(G_k-L_k)^2+(B_k-L_k)^2\right]\right)^{1/2}
-  \end{align}
-  $$
+
+$$
+\begin{align}
+W_{\rm sat}=\left(\frac13\left[(R_k-L_k)^2+(G_k-L_k)^2+(B_k-L_k)^2\right]\right)^{1/2}
+\end{align}
+$$
 
 ##### Multi-scale fusion
 
