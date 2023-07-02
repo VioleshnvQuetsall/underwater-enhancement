@@ -16,18 +16,18 @@ The characteristic of selective attenuation w.r.t. the wavelength of light.
 
 The attenuation rate $\beta$ can be drawn from the absorption and the scattering.
 $$
-
+\begin{align}
 a(\lambda)&={\mathrm d\over\mathrm dr}{\Phi_a(\lambda)\over\Phi_i(\lambda)}\\
 s(\lambda)&={\mathrm d\over\mathrm dr}{\Phi_s(\lambda)\over\Phi_i(\lambda)}\\
 \beta(\lambda)&=a(\lambda)+s(\lambda)
-
+\end{align}
 $$
 
 The final attenuated light is given by
 $$
-
+\begin{align}
 L_{\rm attenuated}&=e^{-\beta d}L_{\rm original}
-
+\end{align}
 $$
 where $d$ denotes the depth from object to camera.
 
@@ -102,16 +102,16 @@ Observation and Improvement
   the enhancement of red should primarily affect the pixels with small red channel values, and should not change pixels that already include a significant red component.
 
 $$
-
+\begin{align}
 I_{rc}(x)=I_r(x)+\alpha(\bar I_g-\bar I_r)(1-I_r(x))I_g(x)
-
+\end{align}
 $$
 
 In turbid water, the blue channel may be significantly attenuated as well.
 $$
-
+\begin{align}
 I_{bc}(x)=I_r(x)+\alpha(\bar I_g-\bar I_b)(1-I_b(x))I_g(x)
-
+\end{align}
 $$
 
 
@@ -126,25 +126,25 @@ A pair of inputs is introduced to respectively enhance the **color contrast** an
 
   correct the global contrast since underwater image tend to be bright
   $$
-  
+  \begin{align}
   \Gamma=I^{\gamma}
-  
+  \end{align}
   $$
   at the cost of a loss of details in the under-or-over-exposed regions
-
+  
 - second input: sharpness
 
   blend a blurred or not sharp version of the image with the image to sharpen
   $$
-  
+  \begin{align}
   S=I+\beta(I-G*I)
-  
+  \end{align}
   $$
   the selection of $\beta$ is not trivial, thus switch to a different approach
   $$
-  
+  \begin{align}
   S=(I+\mathcal N\{I-G*I\})/2
-  
+  \end{align}
   $$
   where $\mathcal N$ denotes the histogram stretching operator, which shifts and scales all the color pixel intensities of an image so that the set of transformed pixel values cover the entire available dynamic range.
 
@@ -164,19 +164,19 @@ The weight maps are used during blending in such a way that pixels with a high w
 
 - Saturation weight
   $$
-  
+  \begin{align}
   W_{\rm sat}=\left(\frac13\left[(R_k-L_k)^2+(G_k-L_k)^2+(B_k-L_k)^2\right]\right)^{1/2}
-  
+  \end{align}
   $$
 
 ##### Multi-scale fusion
 
 Following the traditional multi-scale fusion strategy, each source input $I_k$ is decomposed into a Laplacian pyramid (which basically contains bandpass filtered version at different scales) while the normalized weight maps $\bar W_k$ are decomposed using a Gaussian pyramid.
 $$
-
+\begin{align}
 \bar W_k&={W_k+\delta\over\sum_{k=1}^KW_k+K\delta}\\
 \mathcal R_l(x)&=\sum_{k=1}^KG_l\{\bar W_k(x)\}L_l\{I_k(x)\}
-
+\end{align}
 $$
 
 
@@ -184,25 +184,25 @@ $$
 ### Parameters in Formulas
 
 $$
-
+\begin{align}
 I_{rc}(x)=I_r(x)+\alpha(\bar I_g-\bar I_r)(1-I_r(x))I_g(x)
-
+\end{align}
 $$
 
 - `red_c`: $\alpha$
 
 $$
-
+\begin{align}
 I_{bc}(x)=I_r(x)+\alpha(\bar I_g-\bar I_b)(1-I_b(x))I_g(x)
-
+\end{align}
 $$
 
 - `blue_c`: $\alpha$
 
 $$
-
+\begin{align}
 S=I+\beta(I-G*I)
-
+\end{align}
 $$
 
 - `kernel_size`: kernel size of Gaussian Blur
@@ -210,9 +210,9 @@ $$
 - `sharp_c`: $\beta$
 
 $$
-
+\begin{align}
 \Gamma=I^{\gamma}
-
+\end{align}
 $$
 
 - `gamma_c`:  $\gamma$ gamma correction coefficient when adjusting luminance
