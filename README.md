@@ -35,7 +35,7 @@ $$
 where $d$ denotes the depth from object to camera.
 
 
-![attenuation of light w.r.t. wavelength](img/attenuation rate.png)
+![attenuation of light w.r.t. wavelength](img/attenuation-rate.png)
 
 
 
@@ -135,9 +135,9 @@ $$
 \Gamma=I^{\gamma}
 \end{align}
 $$
-  
+
   at the cost of a loss of details in the under-or-over-exposed regions
-  
+
 - second input: sharpness
 
   blend a blurred or not sharp version of the image with the image to sharpen
@@ -147,15 +147,15 @@ $$
 S=I+\beta(I-G*I)
 \end{align}
 $$
-  
+
   the selection of $\beta$ is not trivial, thus switch to a different approach
-  
+
 $$
 \begin{align}
 S=(I+\mathcal N\{I-G*I\})/2
 \end{align}
 $$
-  
+
   where $\mathcal N$ denotes the histogram stretching operator, which shifts and scales all the color pixel intensities of an image so that the set of transformed pixel values cover the entire available dynamic range.
 
 The weight maps are used during blending in such a way that pixels with a high weight value are more represented in the final image.
